@@ -1,3 +1,11 @@
-export function connect() {
-  console.log('connect');
-}
+import { tronLink } from './wallets/TronLink'
+
+const { connect: connectTronLink } = tronLink()
+
+const {
+  connect,
+  disconnect,
+} = connectTronLink()
+
+connect()
+disconnect()
