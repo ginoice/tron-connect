@@ -4,44 +4,44 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
-    branches: [ "dev" ]
+    branches: ['dev']
   pull_request:
-    branches: [ "dev" ]
+    branches: ['dev']
 jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Set Node.js
         uses: actions/setup-node@v3
 
       - name: Run install
         uses: borales/actions-yarn@v4
         with:
-          cmd: install 
-          
+          cmd: install
+
       - name: Lint the app
         uses: borales/actions-yarn@v4
         with:
-          cmd: lint 
+          cmd: lint
   test:
     needs: [lint]
     name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Set Node.js
         uses: actions/setup-node@v3
 
       - name: Run install
         uses: borales/actions-yarn@v4
         with:
-          cmd: install 
-          
+          cmd: install
+
       - name: Test the app
         uses: borales/actions-yarn@v4
         with:
-          cmd: test 
+          cmd: test

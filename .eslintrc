@@ -3,16 +3,14 @@
     "eslint:recommended",
     "plugin:import/recommended",
     "plugin:@typescript-eslint/recommended",
-    "eslint-config-prettier",
-
+    "eslint-config-prettier"
   ],
-    "settings": {
+  "settings": {
     "import/resolver": {
       "node": {
         "paths": ["src"],
-          "extensions": [".ts"],
-      },
-    },
-  },
+        "extensions": [".ts"]
+      }
+    }
+  }
 }
-
