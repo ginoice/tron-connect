@@ -20,7 +20,8 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "src",
     "paths": {
-      "@tronlink": ["wallets/TronLink/index.ts"]
+      "@tronlink": ["wallets/TronLink/index.ts"],
+      "@utils": ["utils/index.ts"]
     }
   },
   "include": ["src"]

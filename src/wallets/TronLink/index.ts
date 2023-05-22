@@ -1,2 +1,2 @@
-export type { InjectedTronLink } from './ITronLink';
-export { tronLink } from './TronLink';
+export type { InjectedTronLink } from './types/index';
+export { tronLink } from './wallet';
