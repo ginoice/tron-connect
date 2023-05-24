@@ -4,7 +4,7 @@ import { Event } from '../types/events';
 
 //   }
 
-export function subscribeAccountChangeEvent(
+export function onAccountChange(
   callback: (connectNode: any) => void
 ) {
   const handler = (e: MessageEvent) => {

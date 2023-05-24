@@ -10,7 +10,7 @@ interface MessageEventAccountsChangedData {
   };
 }
 
-export function subscribeAccountChangeEvent(
+export function onAccountChange(
   callback: (address: string | boolean) => void
 ) {
   const handler = (e: MessageEvent<MessageEventAccountsChangedData>) => {
