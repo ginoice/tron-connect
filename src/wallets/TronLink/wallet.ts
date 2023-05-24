@@ -13,7 +13,7 @@ import { defaultData, dataMutation } from './utils/store';
 
 import { isWindow } from './../../utils/isWindow';
 
-export function tronLink(args: ITronLinkParams): ITronLink {
+export function wallet(args: ITronLinkParams): ITronLink {
   /* Local store */
   let data: IData = defaultData();
 
@@ -25,21 +25,22 @@ export function tronLink(args: ITronLinkParams): ITronLink {
     return isWindow(async () => {
       try {
         loading();
-  
+
         const tronLink = window.tronLink;
         if (tronLink) {
           if (tronLink.ready) {
             succeeded(tronLink);
-  
+
             return Promise.resolve(tronLink);
           } else {
-            const res = await tronLink.request<IrequestAccountsResponseTronLink>({
-              method: 'tron_requestAccounts',
-            });
-  
+            const res =
+              await tronLink.request<IrequestAccountsResponseTronLink>({
+                method: 'tron_requestAccounts',
+              });
+
             if (res.code === ErequestAccountsResponseCodeTronLink.OK) {
               succeeded(tronLink);
-  
+
               return Promise.resolve(tronLink);
             } else if (
               res.code === ErequestAccountsResponseCodeTronLink.IN_QUEUE
@@ -49,7 +50,7 @@ export function tronLink(args: ITronLinkParams): ITronLink {
               res.code === ErequestAccountsResponseCodeTronLink.USER_REJECTED
             ) {
               failed();
-  
+
               return Promise.reject(res.message);
             }
           }
@@ -61,21 +62,21 @@ export function tronLink(args: ITronLinkParams): ITronLink {
         if (err instanceof Error) {
           return Promise.reject(err.message);
         }
-  
+
         failed();
-  
+
         console.error(err);
       } finally {
         data = defaultData();
       }
-    })
+    });
   };
 
   /* Fn disconnect wallet TronLink */
   const disconnect = () => {
     return isWindow(() => {
       console.log('disconnect');
-    })
+    });
   };
 
   return { connect, disconnect };

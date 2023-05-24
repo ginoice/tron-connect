@@ -1,7 +1,7 @@
-import { tronLink } from './wallets/TronLink/index';
+import { wallet } from './wallets/TronLink/index';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { connect } = tronLink({
+const { connect } = wallet({
   fnConnect: {
     success: (data) => console.log(data),
     failed: (data) => console.log(data),
