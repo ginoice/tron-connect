@@ -11,8 +11,11 @@ export const defaultData = (): IData => {
   };
 };
 
-export const dataMutation = (data: IData, handlers: ITronLinkParams): IDataMutation => {
-
+/* Function that changes the connection statuses to the wallet */
+export const dataMutation = (
+  data: IData,
+  handlers: ITronLinkParams
+): IDataMutation => {
   const { fnConnect } = handlers;
 
   const loading = () => {
