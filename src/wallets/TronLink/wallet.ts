@@ -1,3 +1,5 @@
+import { links } from './../../utils/links';
+
 import {
   ErequestAccountsResponseCodeTronLink,
   ITronLink,
@@ -50,7 +52,7 @@ export function tronLink(args: ITronLinkParams): ITronLink {
         }
       } else {
         // TODO: Process the behavior of the absence of a wallet
-        window.open('https://www.tronlink.org/');
+        window.open(links.tron);
       }
     } catch (err) {
       if (err instanceof Error) {

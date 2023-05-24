@@ -10,9 +10,7 @@ interface MessageEventAccountsChangedData {
   };
 }
 
-export function onAccountChange(
-  callback: (address: string | boolean) => void
-) {
+export function onAccountChange(callback: (address: string | boolean) => void) {
   const handler = (e: MessageEvent<MessageEventAccountsChangedData>) => {
     if (e.data.message && e.data.message.action == Event.accountChanged) {
       callback(e.data.message.data.address);
