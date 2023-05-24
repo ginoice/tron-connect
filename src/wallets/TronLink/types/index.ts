@@ -10,9 +10,9 @@ export interface ITronLinkParams {
     pending: (data: any) => void;
   };
   fnDisconnect: {
-    success: () => void;
-    failed: () => void;
-    pending: () => void;
+    success: (data: any) => void;
+    failed: (data: any) => void;
+    pending: (data: any) => void;
   };
 }
 

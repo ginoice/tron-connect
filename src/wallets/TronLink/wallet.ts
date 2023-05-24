@@ -7,7 +7,7 @@ import {
 
 import { Status } from 'utils/statutses';
 
-import { defaultData } from './utils/data';
+import { defaultData } from './utils/store';
 
 export function tronLink(args: ITronLinkParams): ITronLink {
   /* Local store */
