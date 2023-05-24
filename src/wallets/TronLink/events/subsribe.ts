@@ -8,18 +8,15 @@ interface ISubscribesCallbacks
   networkChanged?: (info: any) => void;
 }
 
-export function subscribe(callbacks: ISubscribesCallbacks) {
-  for (const eventCallbackName in callbacks) {
+function subscribe(callbacks: ISubscribesCallbacks) {
+  for (const e in callbacks) {
+    const eventCallbackName = e as keyof ISubscribesCallbacks;
     window.addEventListener('message', (e) => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       if (
         e.data.message &&
         e.data.message.action === Event[eventCallbackName]
       ) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        callbacks[eventCallbackName]();
+        callbacks[eventCallbackName]?.(e as any);
       }
     });
   }

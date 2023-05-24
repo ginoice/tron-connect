@@ -73,7 +73,6 @@ export function tronLink(args: ITronLinkParams): ITronLink {
           } else if (
             res.code === ErequestAccountsResponseCodeTronLink.USER_REJECTED
           ) {
-
             // FIXME: hide explicit data conversion
             data.provider = null;
             data.status = Status.FAILED;

@@ -5,6 +5,6 @@ export const defaultData = () => {
   return {
     provider: null,
     walletAddress: null,
-    status: Status.IDLE
-  }
-}
+    status: Status.IDLE,
+  };
+};
