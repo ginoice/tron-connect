@@ -4,8 +4,8 @@ import { tronLink } from './wallets/TronLink/index';
 const { connect } = tronLink({
   fnConnect: {
     success: (data) => console.log(data),
-    failed: () => console.log('failed'),
-    pending: () => console.log('loading'),
+    failed: (data) => console.log(data),
+    pending: (data) => console.log(data),
   },
   fnDisconnect: {
     success: () => console.log('res'),

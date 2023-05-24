@@ -5,40 +5,26 @@ import {
   IrequestAccountsResponseTronLink,
 } from './types/index';
 
-import type { IData } from './types/store'
-
-import { Status } from '../../utils/statutses';
+import type { IData } from './types/store';
 
 import { defaultData, dataMutation } from './utils/store';
 
 export function tronLink(args: ITronLinkParams): ITronLink {
   /* Local store */
   let data: IData = defaultData();
-  const { loading, succeeded, failed } = dataMutation(data, args)
 
   /* Handlers events */
-  const { fnConnect } = args;
+  const { loading, succeeded, failed } = dataMutation(data, args);
 
   /* Fn connect wallet TronLink */
   const connect = async () => {
     try {
-      // FIXME: hide explicit data conversion
-      loading()
-
-
-
-      data.status = Status.LOADING;
-      fnConnect.pending(data);
+      loading();
 
       const tronLink = window.tronLink;
       if (tronLink) {
         if (tronLink.ready) {
-          // FIXME: hide explicit data conversion
-          data.provider = tronLink.tronWeb;
-          data.status = Status.SUCCEEDED;
-          data.walletAddress = data.provider.defaultAddress.base58;
-
-          fnConnect.success(data);
+          succeeded(tronLink);
 
           return Promise.resolve(tronLink);
         } else {
@@ -47,45 +33,18 @@ export function tronLink(args: ITronLinkParams): ITronLink {
           });
 
           if (res.code === ErequestAccountsResponseCodeTronLink.OK) {
-            // FIXME: hide explicit data conversion
-            data.provider = tronLink.tronWeb;
-            data.status = Status.SUCCEEDED;
-            data.walletAddress = data.provider.defaultAddress.base58;
-
-            fnConnect.success(data);
+            succeeded(tronLink);
 
             return Promise.resolve(tronLink);
           } else if (
             res.code === ErequestAccountsResponseCodeTronLink.IN_QUEUE
           ) {
-            // return new Promise((resolve, reject) => {
-            //   const timer = setInterval(async () => {
-            //     const res =
-            //       await tronLink.request<IrequestAccountsResponseTronLink>({
-            //         method: 'tron_requestAccounts',
-            //       });
-            //
-            //     if (res.code === ErequestAccountsResponseCodeTronLink.OK) {
-            //       clearInterval(timer);
-            //       resolve(tronLink);
-            //     } else if (
-            //       res.code ===
-            //       ErequestAccountsResponseCodeTronLink.USER_REJECTED
-            //     ) {
-            //       clearInterval(timer);
-            //       reject(res.message);
-            //     }
-            //   }, 1000);
             return Promise.reject(res.message);
           } else if (
             res.code === ErequestAccountsResponseCodeTronLink.USER_REJECTED
           ) {
-            // FIXME: hide explicit data conversion
-            data.provider = null;
-            data.status = Status.FAILED;
-            data.walletAddress = null;
+            failed();
 
-            fnConnect.failed(data);
             return Promise.reject(res.message);
           }
         }
@@ -98,13 +57,9 @@ export function tronLink(args: ITronLinkParams): ITronLink {
         return Promise.reject(err.message);
       }
 
-      // FIXME: hide explicit data conversion
-      data.provider = null;
-      data.status = Status.FAILED;
-      data.walletAddress = null;
+      failed();
 
       console.error(err);
-      fnConnect.failed(data);
     } finally {
       data = defaultData();
     }
@@ -112,7 +67,7 @@ export function tronLink(args: ITronLinkParams): ITronLink {
 
   /* Fn disconnect wallet TronLink */
   const disconnect = async () => {
-    args.fnDisconnect.success();
+    console.log('disconnect');
   };
 
   return { connect, disconnect };
