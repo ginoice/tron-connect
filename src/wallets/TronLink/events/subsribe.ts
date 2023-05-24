@@ -1,4 +1,4 @@
-import { Event } from './events';
+import { Event } from '../types/events';
 
 interface ISubscribesCallbacks
   extends Partial<Record<keyof typeof Event, (arg: any) => void>> {

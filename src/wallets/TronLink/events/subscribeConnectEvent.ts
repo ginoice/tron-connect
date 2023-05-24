@@ -1,4 +1,4 @@
-import { Event } from './events';
+import { Event } from '../types/events';
 
 export function subscribeConnectEvent(callback: (address: string) => void) {
   const handler = (e: MessageEvent<any>) => {

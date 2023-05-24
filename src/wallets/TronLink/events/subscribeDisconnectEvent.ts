@@ -1,4 +1,4 @@
-import { Event } from './events';
+import { Event } from '../types/events';
 
 export function subscribeDisconnectEvent(callback: (data: any) => void) {
   const handler = (e: MessageEvent<any>) => {
