@@ -1,4 +1,4 @@
-import { Status } from 'utils/statutses';
+import { Status } from '../../../utils/statutses';
 import type { IData, IDataMutation } from '../types/store';
 import type { ITronLinkParams } from '../types/index';
 

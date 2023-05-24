@@ -5,13 +5,16 @@ import {
   IrequestAccountsResponseTronLink,
 } from './types/index';
 
-import { Status } from 'utils/statutses';
+import type { IData } from './types/store'
 
-import { defaultData } from './utils/store';
+import { Status } from '../../utils/statutses';
+
+import { defaultData, dataMutation } from './utils/store';
 
 export function tronLink(args: ITronLinkParams): ITronLink {
   /* Local store */
-  let data: any = defaultData();
+  let data: IData = defaultData();
+  const { loading, succeeded, failed } = dataMutation(data, args)
 
   /* Handlers events */
   const { fnConnect } = args;
@@ -20,6 +23,10 @@ export function tronLink(args: ITronLinkParams): ITronLink {
   const connect = async () => {
     try {
       // FIXME: hide explicit data conversion
+      loading()
+
+
+
       data.status = Status.LOADING;
       fnConnect.pending(data);
 
