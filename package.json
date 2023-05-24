@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "prettier": "npx prettier --write .",
     "prettier-check": "npx prettier --check .",
-    "lint": "npx eslint --ext .ts ."
+    "lint": "npx eslint --ext .ts .",
+    "check": "yarn lint && yarn prettier-check",
+    "fix": "yarn prettier && yarn lint --fix"
   },
   "devDependencies": {
     "eslint": "^8.40.0",
