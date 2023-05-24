@@ -3,7 +3,7 @@ import {
   ITronLink,
   ITronLinkParams,
   IrequestAccountsResponseTronLink,
-} from './types/index';
+} from './types/wallet';
 
 import type { IData } from './types/store';
 

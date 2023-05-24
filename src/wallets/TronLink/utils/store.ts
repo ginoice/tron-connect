@@ -1,6 +1,6 @@
 import { Status } from '../../../utils/statutses';
 import type { IData, IDataMutation } from '../types/store';
-import type { ITronLinkParams } from '../types/index';
+import type { ITronLinkParams } from '../types/wallet';
 
 /* Default template data */
 export const defaultData = (): IData => {
