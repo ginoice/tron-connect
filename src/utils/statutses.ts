@@ -21,5 +21,5 @@ export const enum Status {
   NOT_FOUND = 'not_found',
   EMPTY = 'empty',
   FOUND = 'found',
-  OK = 'ok'
+  OK = 'ok',
 }

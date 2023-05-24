@@ -1,6 +1,6 @@
- import { expect, it } from 'vitest';
+import { expect, it } from 'vitest';
 
- it('test', () => {
-   const result = 2;
-   expect(result).eq(2);
- });
+it('test', () => {
+  const result = 2;
+  expect(result).eq(2);
+});
