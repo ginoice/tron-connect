@@ -4,7 +4,7 @@ import { Event } from '../types/events';
 
 //   }
 
-export function onAccountChange(callback: (connectNode: any) => void) {
+export function onNetworkChange(callback: (connectNode: any) => void) {
   const handler = (e: MessageEvent) => {
     if (e.data.message && e.data.message.action == Event.networkChanged) {
       callback(e.data);

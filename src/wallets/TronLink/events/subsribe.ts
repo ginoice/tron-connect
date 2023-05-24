@@ -8,7 +8,7 @@ interface ISubscribesCallbacks
   networkChanged?: (info: any) => void;
 }
 
-function subscribe(callbacks: ISubscribesCallbacks) {
+export function subscribe(callbacks: ISubscribesCallbacks) {
   for (const e in callbacks) {
     const eventCallbackName = e as keyof ISubscribesCallbacks;
     window.addEventListener('message', (e) => {
