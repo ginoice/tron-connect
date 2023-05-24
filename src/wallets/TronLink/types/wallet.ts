@@ -1,3 +1,5 @@
+import { IData } from "./store";
+
 export interface ITronLink {
   connect: Promise<any> | any;
   disconnect: Promise<any> | any;
@@ -5,14 +7,14 @@ export interface ITronLink {
 
 export interface ITronLinkParams {
   fnConnect: {
-    success: (data: any) => void;
-    failed: (data: any) => void;
-    pending: (data: any) => void;
+    success: (data: IData) => void;
+    failed: (data: IData) => void;
+    pending: (data: IData) => void;
   };
   fnDisconnect: {
-    success: (data: any) => void;
-    failed: (data: any) => void;
-    pending: (data: any) => void;
+    success: (data: IData) => void;
+    failed: (data: IData) => void;
+    pending: (data: IData) => void;
   };
 }
 

@@ -1,7 +1,7 @@
 interface ILink {
-  tron: string
+  tron: string;
 }
 
-export const links:ILink = {
-  tron: 'https://www.tronlink.org/'
-}
+export const links: ILink = {
+  tron: 'https://www.tronlink.org/',
+};
