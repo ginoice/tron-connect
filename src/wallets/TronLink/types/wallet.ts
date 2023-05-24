@@ -1,4 +1,4 @@
-import { IData } from "./store";
+import { IData } from './store';
 
 export interface ITronLink {
   connect: Promise<any> | any;
