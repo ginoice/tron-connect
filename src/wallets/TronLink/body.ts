@@ -19,6 +19,6 @@ export const TronLink = () => {
 
   return {
     // subscribeWallet,
-    wallet
-  }
-}
+    wallet,
+  };
+};
