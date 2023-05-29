@@ -12,6 +12,7 @@ const { connect } = wallet({
     failed: () => console.log('failed'),
     pending: () => console.log('loading'),
   },
+  fnOnNetworkChanged: (data) => console.log('network changed', data),
 });
 
 const btnConnectWallet: HTMLButtonElement = document.querySelector(

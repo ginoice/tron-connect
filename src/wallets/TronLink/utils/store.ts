@@ -8,6 +8,7 @@ export const defaultData = (): IData => {
     provider: null,
     walletAddress: null,
     status: Status.IDLE,
+    network: null,
   };
 };
 
@@ -30,6 +31,7 @@ export const dataMutation = (
     data.provider = tronLink.tronWeb;
     data.status = Status.SUCCEEDED;
     data.walletAddress = data.provider.defaultAddress.base58;
+    data.network = data.provider.fullNode.host;
 
     fnConnect.success(data);
   };

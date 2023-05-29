@@ -3,6 +3,7 @@ import { IData } from './store';
 export interface ITronLink {
   connect: Promise<any> | any;
   disconnect: Promise<any> | any;
+  onNetworkChanged: Promise<any> | any;
 }
 
 export interface ITronLinkParams {
@@ -16,6 +17,8 @@ export interface ITronLinkParams {
     failed: (data: IData) => void;
     pending: (data: IData) => void;
   };
+
+  fnOnNetworkChanged: (data: IData) => void;
 }
 
 export interface InjectedTronLink {

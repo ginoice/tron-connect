@@ -79,5 +79,12 @@ export function wallet(args: ITronLinkParams): ITronLink {
     });
   };
 
-  return { connect, disconnect };
+  const onNetworkChanged = () => {
+    // TODO: make a handler for the network change event
+    return isWindow(() => {
+      args.fnOnNetworkChanged(data);
+    });
+  };
+
+  return { connect, disconnect, onNetworkChanged };
 }
