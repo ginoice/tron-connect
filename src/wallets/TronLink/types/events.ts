@@ -4,3 +4,9 @@ export enum Event {
   accountChanged = 'accountsChanged',
   networkChanged = 'setNode',
 }
+
+type TypeOnConnectCallback = (address: string) => void
+
+export type {
+  TypeOnConnectCallback
+}

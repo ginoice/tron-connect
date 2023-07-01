@@ -4,7 +4,6 @@ interface IData {
   provider: any;
   walletAddress: string | null;
   status: Status;
-  // TODO: add types for network
   network: string | null;
 }
 

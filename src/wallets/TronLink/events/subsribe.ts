@@ -8,6 +8,10 @@ interface ISubscribesCallbacks
   networkChanged?: (info: any) => void;
 }
 
+export type {
+  ISubscribesCallbacks
+}
+
 export function subscribe(callbacks: ISubscribesCallbacks) {
   for (const e in callbacks) {
     const eventCallbackName = e as keyof ISubscribesCallbacks;

@@ -1,12 +1,12 @@
 import { IData } from './store';
 
-export interface ITronLink {
+export interface IWallet {
   connect: Promise<any> | any;
   disconnect: Promise<any> | any;
   onNetworkChanged: Promise<any> | any;
 }
 
-export interface ITronLinkParams {
+export interface IWalletParams {
   fnConnect: {
     success: (data: IData) => void;
     failed: (data: IData) => void;

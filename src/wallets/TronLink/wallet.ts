@@ -1,10 +1,13 @@
 import { links } from './../../utils/links';
 
+import type {
+  IWallet,
+  IWalletParams
+} from './types/wallet';
+
 import {
   ErequestAccountsResponseCodeTronLink,
-  ITronLink,
-  ITronLinkParams,
-  IrequestAccountsResponseTronLink,
+  IrequestAccountsResponseTronLink
 } from './types/wallet';
 
 import type { IData } from './types/store';
@@ -13,7 +16,7 @@ import { defaultData, dataMutation } from './utils/store';
 
 import { isWindow } from './../../utils/isWindow';
 
-export function wallet(args: ITronLinkParams): ITronLink {
+export function wallet(args: IWalletParams): IWallet {
   /* Local store */
   let data: IData = defaultData();
 
